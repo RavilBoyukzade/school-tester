@@ -11,10 +11,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ClassDetailComponent } from './pages/class-detail/class-detail.component';
 import { AddTestComponent } from './pages/add-test/add-test.component';
 
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
+    ClassesComponent,
     TeacherComponent,
     DashboardComponent,
     ClassesComponent,
@@ -25,7 +28,10 @@ import { AddTestComponent } from './pages/add-test/add-test.component';
   imports: [
     CommonModule,
     TeacherRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule,
+    RouterModule,
+    FormsModule,
   ]
 })
 export class TeacherModule { }
