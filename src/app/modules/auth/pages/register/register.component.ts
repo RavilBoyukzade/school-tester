@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../../../../core/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: false,
@@ -10,7 +12,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterComponent {
   registerForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) 
+ {
     this.registerForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -20,8 +23,10 @@ export class RegisterComponent {
 
   onSubmit() {
     if (this.registerForm.valid) {
-      console.log(this.registerForm.value);
-      // Тут будет отправка на backend или в AuthService
+      const result = this.authService.register(this.registerForm.value);
+      if (result) {
+        this.router.navigate(['/auth/login']);
+      }
     }
   }
 }
