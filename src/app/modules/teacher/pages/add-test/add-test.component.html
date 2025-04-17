@@ -1,0 +1,28 @@
+<div class="container mt-3">
+    <h4>Add Test</h4>
+    <form [formGroup]="testForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="title" class="form-label">Test Title</label>
+        <input formControlName="title" type="text" class="form-control" id="title" />
+        <div *ngIf="testForm.controls['title'].invalid && testForm.controls['title'].touched" class="text-danger">
+          Title is required
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="description" class="form-label">Test Description</label>
+        <textarea formControlName="description" class="form-control" id="description"></textarea>
+        <div *ngIf="testForm.controls['description'].invalid && testForm.controls['description'].touched" class="text-danger">
+          Description is required
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="date" class="form-label">Test Date</label>
+        <input formControlName="date" type="date" class="form-control" id="date" />
+        <div *ngIf="testForm.controls['date'].invalid && testForm.controls['date'].touched" class="text-danger">
+          Date is required
+        </div>
+      </div>
+      <button class="btn btn-success" type="submit" [disabled]="testForm.invalid">Add Test</button>
+    </form>
+  </div>
+  

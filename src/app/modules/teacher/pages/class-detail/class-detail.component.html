@@ -1,0 +1,11 @@
+<div *ngIf="classData; else noClass">
+    <h2>{{ classData.name }} - {{ classData.code }}</h2>
+    <button class="btn btn-outline-success mt-3" [routerLink]="['/teacher/classes', classData.id, 'add-test']">
+      Add Test
+    </button>
+  </div>
+  
+  <ng-template #noClass>
+    <p>Class not found.</p>
+  </ng-template>
+  
