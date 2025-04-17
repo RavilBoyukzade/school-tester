@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
+import { ClassesComponent } from './modules/teacher/pages/classes/classes.component';
+import { HomeComponent } from './modules/public/pages/home/home.component';
 
 const routes: Routes = [{ path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) }, {
   path: 'teacher',
@@ -13,7 +15,13 @@ const routes: Routes = [{ path: 'auth', loadChildren: () => import('./modules/au
   canActivate: [AuthGuard],
   loadChildren: () =>
     import('./modules/student/student.module').then((m) => m.StudentModule),
-}];
+},
+{
+  path: 'teacher/classes',
+  component: ClassesComponent
+},
+{ path: '', component: HomeComponent }, // 👈 маршрут по умолчанию
+  { path: '**', redirectTo: '', pathMatch: 'full' },];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
