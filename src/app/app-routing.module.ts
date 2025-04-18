@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
 import { ClassesComponent } from './modules/teacher/pages/classes/classes.component';
 import { HomeComponent } from './modules/public/pages/home/home.component';
+import { ClassCodeComponent } from './student/class-code/class-code.component';
+import { TestComponent } from './student/test/test.component';
 
 const routes: Routes = [{ path: 'auth', loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule) }, {
   path: 'teacher',
@@ -21,7 +23,13 @@ const routes: Routes = [{ path: 'auth', loadChildren: () => import('./modules/au
   component: ClassesComponent
 },
 { path: '', component: HomeComponent }, // 👈 маршрут по умолчанию
-  { path: '**', redirectTo: '', pathMatch: 'full' },];
+  { path: '**', redirectTo: '', pathMatch: 'full' },
+  {
+    path: 'student/enter-class-code',
+    component: ClassCodeComponent // <-- компонент для ввода кода
+  }
+  , // Новый маршрут для кода класса
+  { path: 'student/test', component: TestComponent },];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

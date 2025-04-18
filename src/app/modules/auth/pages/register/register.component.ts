@@ -21,12 +21,18 @@ export class RegisterComponent {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.registerForm.valid) {
-      const result = this.authService.register(this.registerForm.value);
-      if (result) {
+      const { email, password, role } = this.registerForm.value;
+  
+      try {
+        this.authService.register(email, password, role);
+        alert('Registration successful! You can now login.');
         this.router.navigate(['/auth/login']);
+      } catch (err) {
+        alert('User already exists!');
       }
     }
   }
+  
 }

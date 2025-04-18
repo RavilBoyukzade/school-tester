@@ -1,0 +1,19 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Доступные тесты</h2>
+  
+    <div *ngIf="activeTests.length > 0; else noTests">
+      <div class="card mb-3" *ngFor="let test of activeTests">
+        <div class="card-body">
+          <h5 class="card-title">{{ test.title }}</h5>
+          <p class="card-text">Предмет: {{ test.subject }}</p>
+          <p class="card-text text-muted">Доступен до: {{ test.activeUntil | date:'short' }}</p>
+          <button class="btn btn-primary">Пройти тест</button>
+        </div>
+      </div>
+    </div>
+  
+    <ng-template #noTests>
+      <p class="text-muted">На данный момент нет активных тестов.</p>
+    </ng-template>
+  </div>
+  
