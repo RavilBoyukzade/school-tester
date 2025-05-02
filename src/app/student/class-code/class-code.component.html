@@ -1,1 +1,9 @@
-<p>class-code works!</p>
+<div class="text-center">
+    <button class="btn btn-primary" (click)="toggleInput()">Ввести код класса</button>
+  
+    <div *ngIf="showInput" class="mt-3">
+      <input type="text" [(ngModel)]="classCode" placeholder="Введите код класса" class="form-control w-50 mx-auto" />
+      <button class="btn btn-success mt-2" (click)="submitCode()">Перейти к тесту</button>
+    </div>
+  </div>
+  

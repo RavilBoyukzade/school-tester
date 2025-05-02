@@ -23,13 +23,13 @@ const routes: Routes = [{ path: 'auth', loadChildren: () => import('./modules/au
   component: ClassesComponent
 },
 { path: '', component: HomeComponent }, // 👈 маршрут по умолчанию
-  { path: '**', redirectTo: '', pathMatch: 'full' },
-  {
-    path: 'student/enter-class-code',
-    component: ClassCodeComponent // <-- компонент для ввода кода
-  }
+{ path: '**', redirectTo: '', pathMatch: 'full' },
+{
+  path: 'student/enter-class-code',
+  component: ClassCodeComponent // <-- компонент для ввода кода
+}
   , // Новый маршрут для кода класса
-  { path: 'student/test', component: TestComponent },];
+{ path: 'student/test', component: TestComponent },];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
