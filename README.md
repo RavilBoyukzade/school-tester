@@ -1,7 +1,8 @@
 # SchoolTester
-![App Screenshot](Appscreenshot.png) <!-- Добавьте скриншот позже -->
 ![App Screenshot](screenshots/1.png) <!-- Добавьте скриншот позже -->
-![App Screenshot](2.png) <!-- Добавьте скриншот позже -->
+![App Screenshot](screenshots/2.png) <!-- Добавьте скриншот позже -->
+![App Screenshot](screenshots/3.png) <!-- Добавьте скриншот позже -->
+![App Screenshot](screenshots/4.png) <!-- Добавьте скриншот позже -->
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.7.
 
